@@ -1,0 +1,6 @@
+2. term = -term*x*x/((n+1)*(n+2));
+3. count++;
+4. fab(term) >= pow(10,-5)
+
+if anythingwrong
+  ask me;
