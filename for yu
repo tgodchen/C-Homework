@@ -1,6 +1,55 @@
-2. term = -term*x*x/((n+1)*(n+2));
-3. count++;
-4. fab(term) >= pow(10,-5)
+/*document homework made in Chen*/
 
-if anythingwrong
-  ask me;
+#include <stdio.h>
+
+typedef int Status;
+
+typedef struct Node
+{
+	int she[100];
+	Status no;
+}List;             //定义结构体，she数组表示单行的所有数据
+
+int main(int argc, char const *argv[])
+{
+	printf("document 1.0\nloading...\n" );
+	printf("please input a number to make it work:" );
+	List chen[100]; 	/*定义结构数组，下标代表行*/
+	int first=1,first_add=2;   /*first表示每行的第一个数字，first—add表示每行的第一个增量*/
+	int num,i,k=0,num_add;     /*num表示所有数据，num—add表示变化的增量*/
+	int hang = 1;
+	while (first <= 100)
+	{
+		num = first;
+		num_add = first_add;   /*保护数据*/
+		for (i = 0;num <= 100; ++i)
+		{
+			chen[hang].she[i]=num;
+			num+=num_add;		/*累加*/
+			num_add++;
+		}
+		hang++;
+		k++; 					/*k代表着每行首数字的增量，累加*/
+		first_add++;			
+		first+=k;
+	}
+	//...........分割线............
+	hang = 1;
+	i = 0;
+	k = 0;
+	int n;						/*防止冲突，此时重置一些变量*/
+	scanf("%d",&n);				/*输入打印需求*/
+	k = n;
+	for (hang = 1; hang <= n; ++hang)
+	{
+		for (i = 0; i < k; ++i)
+		{
+			printf("%d", chen[hang].she[i]);
+			if (i < k - 1)
+				printf(" ");     /*行尾不需要空格，加一判断句*/
+		}
+		printf("\n");
+		k--;
+	}
+	return 0;
+}
